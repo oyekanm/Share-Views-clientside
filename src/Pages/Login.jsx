@@ -12,7 +12,7 @@ import { useGlobalContext } from "../components/Context";
 function Login() {
   const [submit, setSubmit] = useState(false);
   const { session, setSession } = useGlobalContext();
-  // console.log(session);
+  // console.log(import.meta.env.REACT_APP_TAB,import.meta.env.VITE_SOME_KEY );
   const navigate = useNavigate();
   const initialValues = {
     username: "",
@@ -26,7 +26,7 @@ function Login() {
   const onSubmit = (data) => {
     // setSubmit(true);
     axios
-      .post("http://localhost:5000/api/auth/login", data)
+      .post(`${import.meta.env.VITE_PORT}/api/auth/login`, data)
       .then((res) => {
         const token = res.data.token;
         const auth = { username: res.data.username, id: res.data.id };
@@ -40,7 +40,7 @@ function Login() {
             navigate("/");
           } else {
             axios
-              .get("http://localhost:5000/api/auth", {
+              .get(`${import.meta.env.VITE_PORT}/api/auth`, {
                 headers: {
                   accessToken: storage,
                 },

@@ -19,9 +19,11 @@ function FormPage() {
     postText: string().min(10).required(),
   });
 
+  
+
   const onSubmit = (data) => {
       setSubmit(true);
-      axios.post("http://localhost:5000/api/posts", data,{
+      axios.post(`${import.meta.env.VITE_PORT}/api/auth/posts`, data,{
         headers: {
           accessToken: storage,
         },

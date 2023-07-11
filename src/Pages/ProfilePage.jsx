@@ -28,10 +28,11 @@ function ProfilePage() {
       });
     getUserPost();
   }, []);
+  
 
   const getUserPost = () => {
     axios
-      .get(`http://localhost:5000/api/posts/user/${userId}`, {
+      .get(`${import.meta.env.VITE_PORT}/api/posts/user/${userId}`, {
         headers: {
           accessToken: storage,
         },
@@ -52,7 +53,7 @@ function ProfilePage() {
   const likePost = async (id) => {
     await axios
       .post(
-        "http://localhost:5000/api/likes",
+        `${import.meta.env.VITE_PORT}/api/likes`,
         { PostId: id },
         {
           headers: {

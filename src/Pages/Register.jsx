@@ -26,7 +26,7 @@ function Register() {
   const onSubmit = (data) => {
     setSubmit(true);
     axios
-      .post("http://localhost:5000/api/auth", data)
+      .post(`${import.meta.env.VITE_PORT}/api/auth`, data)
       .then((res) => {
         //   console.log(res);
         const token = res.data.token;
@@ -42,7 +42,7 @@ function Register() {
           }else{
             
             axios
-            .get("http://localhost:5000/api/auth", {
+            .get(`${import.meta.env.VITE_PORT}/api/auth`, {
               headers: {
                 accessToken: storage,
               },

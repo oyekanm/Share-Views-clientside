@@ -14,7 +14,7 @@ function AppProvider({ children }) {
     // console.log(storage);
     if (storage){
       axios
-        .get("http://localhost:5000/api/auth", {
+        .get(`${import.meta.env.VITE_PORT}/api/auth`, {
           headers: {
             accessToken: storage,
           },
@@ -23,7 +23,7 @@ function AppProvider({ children }) {
           if (res.data) {
             // console.log(res.data);
             axios
-              .get(`http://localhost:5000/api/auth/${res.data.id}`)
+              .get(`${import.meta.env.VITE_PORT}/api/auth/${res.data.id}`)
               .then((res) => {
                 // console.log(res);
   

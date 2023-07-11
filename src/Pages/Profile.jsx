@@ -14,10 +14,11 @@ function Profile() {
   useEffect(() => {
     getUserPost();
   }, []);
+  
 
   const getUserPost = () => {
     axios
-      .get(`http://localhost:5000/api/posts/user/${session?.id}`, {
+      .get(`${import.meta.env.VITE_PORT}/api/posts/user/${session?.id}`, {
         headers: {
           accessToken: storage,
         },
@@ -38,7 +39,7 @@ function Profile() {
   const likePost = async (id) => {
     await axios
       .post(
-        "http://localhost:5000/api/likes",
+        `${import.meta.env.VITE_PORT}/api/likes`,
         { PostId: id },
         {
           headers: {

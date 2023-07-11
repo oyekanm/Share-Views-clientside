@@ -12,11 +12,11 @@ function Home() {
   // const { session } = useGlobalContext();
   const storage = localStorage.getItem("access-Token");
 
-
+  
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/posts", {
+      .get(`${import.meta.env.VITE_PORT}/api/posts`, {
         headers: {
           accessToken: storage,
         },
@@ -33,10 +33,11 @@ function Home() {
   }, []);
   // console.log(posts);
 
+
   const likePost = async (id) => {
     await axios
       .post(
-        "http://localhost:5000/api/likes",
+        `${import.meta.env.VITE_PORT}/api/likes`,
         { PostId: id },
         {
           headers: {

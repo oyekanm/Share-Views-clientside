@@ -13,11 +13,11 @@ function SinglePost() {
 
   // const navigate = useNavigate();
   const storage = localStorage.getItem("access-Token");
-
+  
 
   useEffect(() => {
     setLoading(true)
-    axios.get("http://localhost:5000/api/posts/" + id,
+    axios.get(`${import.meta.env.VITE_PORT}/api/posts/${id}`,
     {
       headers: {
         accessToken: storage,
@@ -43,7 +43,7 @@ function SinglePost() {
   const likePost = async (Id) => {
     await axios
       .post(
-        "http://localhost:5000/api/likes",
+        `${import.meta.env.VITE_PORT}/api/likes`,
         { PostId: Id },
         {
           headers: {

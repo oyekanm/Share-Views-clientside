@@ -18,18 +18,16 @@ function SharedLayout() {
   const navigate = useNavigate();
   // console.log(Boolean(session));
 
-  useEffect(() => {
-    if (!session) {
-      return navigate("/login");
-    }
-  }, [session]);
+  // useEffect(() => {
+  //   if (!session) {
+  //     return navigate("/login");
+  //   }
+  // }, []);
 
-  // if (!session) {
-  //  return navigate("/login");
-  // }
-  // if (!session) {
-  //   <Navigate to="/login" replace />
-  // }
+ 
+  if (!session) {
+    <Navigate to="/login" replace />
+  }
 
   return (
     <>

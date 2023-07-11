@@ -10,10 +10,11 @@ function Comments({ id }) {
 
   const { session } = useGlobalContext();
   // console.log(comments);
+  
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/comments/" + id)
+      .get(`${import.meta.env.VITE_PORT}/api/comments/${id}`)
       .then((res) => {
         if (res.status !== 200) {
           setComments(null);
@@ -30,7 +31,7 @@ function Comments({ id }) {
 
   const deleteComment = (ID) => {
     axios
-      .delete("http://localhost:5000/api/comments/" + ID)
+      .delete(`${import.meta.env.VITE_PORT}/api/comments/${ID}`)
       .then((res) => {
         setComments(comments.filter(c=>c.id !== ID))
       })
@@ -48,7 +49,7 @@ function Comments({ id }) {
     const storage = localStorage.getItem("access-Token");
 
     axios
-      .post("http://localhost:5000/api/comments/", data, {
+      .post(`${import.meta.env.VITE_PORT}/api/comments`, data, {
         headers: {
           accessToken: storage,
         },

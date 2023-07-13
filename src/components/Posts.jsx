@@ -8,7 +8,7 @@ function Posts({posts,Likes,likePost,like}) {
    
   return (
     <main className="relative sm:min-h-screen px-4">
-   <div className='sm:fixed'>
+   <div className='sm:sticky flex-col w-full flex left-0'>
    <div >
               <NavLink to={"/profile/" + UserId} className="text-[1.6rem] font-semibold flex items-center gap-[5px]">
                 <span>
@@ -17,7 +17,7 @@ function Posts({posts,Likes,likePost,like}) {
                 {username}
               </NavLink>
               <p className="text-[1.5rem] font-normal">{title}</p>
-              <p className="text-[1.9rem] font-semibold">
+              <p className="text-[1.9rem] font-semibold break-all w-full">
                 {postText}
               </p>
             </div>

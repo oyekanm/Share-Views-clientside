@@ -19,7 +19,7 @@ function Posts({posts,Likes,likePost,like}) {
               <p className="text-[1.5rem] font-normal">{title}</p>
               <p className="text-[1.9rem] font-semibold">
                 {postText.slice(0, 50)}
-                {postText.length > 50 && "......"}
+                {postText.length}
               </p>
             </div>
             <div className="flex  items-center h-[30px]">

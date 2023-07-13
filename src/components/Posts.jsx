@@ -18,8 +18,7 @@ function Posts({posts,Likes,likePost,like}) {
               </NavLink>
               <p className="text-[1.5rem] font-normal">{title}</p>
               <p className="text-[1.9rem] font-semibold">
-                {postText.slice(0, 50)}
-                {postText.length}
+                {postText}
               </p>
             </div>
             <div className="flex  items-center h-[30px]">

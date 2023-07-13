@@ -23,7 +23,7 @@ function FormPage() {
 
   const onSubmit = (data) => {
       setSubmit(true);
-      axios.post(`${import.meta.env.VITE_PORT}/api/auth/posts`, data,{
+      axios.post(`${import.meta.env.VITE_PORT}/api/posts`, data,{
         headers: {
           accessToken: storage,
         },

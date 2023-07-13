@@ -47,6 +47,8 @@ function AppProvider({ children }) {
     localStorage.removeItem("access-Token")
   }
 
+  
+
   return (
     <AppContext.Provider value={{ setSession, session,profile,setProfile,logout }}>
       {children}

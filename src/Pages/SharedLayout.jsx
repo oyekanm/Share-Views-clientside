@@ -3,6 +3,7 @@ import { useGlobalContext } from "../components/Context";
 import { Outlet, redirect, useNavigate, Navigate } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import Navbar from "../components/Layout/Navbar";
+import Options from "../components/Options";
 
 function MyFallbackComponent({ error, resetErrorBoundary }) {
   return (
@@ -18,16 +19,14 @@ function SharedLayout() {
   const navigate = useNavigate();
   // console.log(Boolean(session));
 
-  // useEffect(() => {
-  //   if (!session) {
-  //     return navigate("/login");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!session) {
+      return navigate("/login");
+    }
+  }, []);
 
- 
-  if (!session) {
-    <Navigate to="/login" replace />
-  }
+  
+  //  return <Navigate to="/login" replace />
 
   return (
     <>
